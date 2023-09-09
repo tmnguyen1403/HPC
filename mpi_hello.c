@@ -49,6 +49,10 @@ int main(void) {
             MPI_Recv(greeting, MAX_STRING, MPI_CHAR, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &status);
             printf("Status - mpi_source: %d, mpi_tag: %d, mpi_error: %d\n", status.MPI_SOURCE, status.MPI_TAG, status.MPI_ERROR);
             printf("%s\n", greeting);
+            //calculate the amount of data
+            int count = 0; // number of bytes received
+            MPI_Get_count(&status, MPI_CHAR, &count);
+            printf("Number of received element in greeting: count: %d\n", count);
         }
     }
 
