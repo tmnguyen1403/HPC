@@ -4,6 +4,10 @@ Mergesort: split array by half until none splittable, then combine the two array
 '''
 import unittest
 import numpy as np
+import time
+import os
+
+from merge_sort_serial import MergeSortSerial
 
 class Test(unittest.TestCase):
     def test(self, f, input, expect):
@@ -11,54 +15,13 @@ class Test(unittest.TestCase):
         self.assertEqual(output, expect)
 
 def test(f, input, expect):
-        print(f"Test input: {input}")
-        print(f"Expect output: {expect}")
+        # print(f"Test input: {input}")
+        # print(f"Expect output: {expect}")
+       # print(f"Test input size: {len(input)}")
+        #print(f"Expect output: {expect}")
         output = f(input)
-        print(f"output == expect: {output == expect}")
+        #print(f"output == expect: {output == expect}")
         assert output == expect
-
-def f(input):
-    return input
-
-class MergeSort:
-    # def __init__(self):
-    #     pass
-
-    def merge(self, array):
-        n = len(array)
-        if n == 1:
-            return array
-        mid = n // 2
-        left_array = self.merge(array=array[:mid])
-        right_array = self.merge(array=array[mid:n])
-
-        left_pointer = 0
-        right_pointer = 0
-        combine_array = [0] * n
-        index = 0
-        left_n = mid
-        right_n = n - mid
-        #Combine two sorted array
-        while left_pointer < left_n and right_pointer < right_n:
-            if left_array[left_pointer] < right_array[right_pointer]:
-                combine_array[index] = left_array[left_pointer]
-                left_pointer += 1
-            else:
-                combine_array[index] = right_array[right_pointer]
-                right_pointer += 1
-            index += 1
-
-        while left_pointer < left_n:
-            combine_array[index] = left_array[left_pointer]
-            left_pointer += 1
-            index += 1
-        
-        while right_pointer < right_n:
-            combine_array[index] = right_array[right_pointer]
-            right_pointer += 1
-            index += 1
-
-        return combine_array
 
 def generate_test_case(min_max, N, out_file):
     '''
@@ -88,20 +51,37 @@ def generate_test_case(min_max, N, out_file):
             file.write(array_string + '\n')
             file.write(sorted_array_string + '\n\n')
 
+def time_function(merge_sort_f,input_array,expect_array, test_range):
+    elapsed_time_array = []
+    for n in test_range:
+        start_time = time.time()
+        for i in range(n):
+            test(merge_sort_f, input=input_array[i], expect=expect_array[i])
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        elapsed_time_array.append(elapsed_time)
+    return elapsed_time_array
+
+def save_run_time(test_range,elapsed_time_array,out_file):
+    with open(out_file, "w") as file:
+        for n,elapsed_time in zip(test_range, elapsed_time_array):
+            file.write(f"{n} : {elapsed_time} seconds \n")
+
 if __name__ == "__main__":
     # Generate test case
     #First line: input
     #Second line: expect_output
 
-    test_file = "merge_test_input.txt"
+    test_file = "./data/merge_test_input.txt"
     # Generate test file 
     # min_max = [-200, 200]
-    # N = 10000
+    N = 10000
     # generate_test_case(min_max, N, test_file)
+    # exit(0)
 
     input_array = []
     expect_array = []
-    max_test=100
+    max_test=N//2
     with open(test_file, "r") as file:
         read_input=True
         for line_number, line in enumerate(file):
@@ -118,8 +98,15 @@ if __name__ == "__main__":
                 expect_array.append(input)
                 read_input=True
 
-    merge_sort = MergeSort()
+    merge_sort_serial = MergeSortSerial()
 
-    for input,expect in zip(input_array, expect_array):
-        test(merge_sort.merge, input=input, expect=expect)
+    test_range = [10,100,1000,N//2]
+    merge_sort_f = merge_sort_serial.merge
+    elapsed_time_array = time_function(merge_sort_f, input_array,expect_array,test_range)
+    
+    time_folder = "merge_time"
+    time_out_file = "merge_timing_serial_4.txt"
+    time_out_path = os.path.join(time_folder, time_out_file)
+    save_run_time(test_range, elapsed_time_array, time_out_path)
+
 
