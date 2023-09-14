@@ -1,3 +1,5 @@
 10 : 0.02052474021911621 seconds 
 100 : 0.9264328479766846 seconds 
 200 : 4.04435396194458 seconds 
+
+Thread explosion, not suitable

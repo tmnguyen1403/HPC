@@ -10,8 +10,8 @@ for every call to the merge function, create two threads to handle left and righ
 
 '''
 class MergeSortParallel:
-    # def __init__(self):
-    #     pass
+    def __init__(self, max_thread):
+        self.max_thread = max_thread
 
     def sort(self, array):
         self.merge(array)
@@ -19,47 +19,53 @@ class MergeSortParallel:
     
     def merge(self, array):
         n = len(array)
-        if n == 1:
+        if n <= 1:
             return
-        
-        mid = n // 2
-        left_array = array[:mid]
-        right_array = array[mid:n]
-        left_thread = threading.Thread(target=self.merge, args=(left_array,))
-        right_thread = threading.Thread(target=self.merge, args=(right_array,))
+        if n < self.max_thread:
+            #perform insertion sort here:
+            sorted_array = sorted(array)
+            for i in range(len(array)):
+                array[i] = sorted_array[i]
+            return array
+        #print(n)
+        data = [[]] * self.max_thread
+        left = 0
+        step = n //self.max_thread
+        for rank in range(self.max_thread):
+            #print(f"left-right: {left} - {left+step}")
+            data[rank] = array[left:left+step]
+            left += step
+        # print(data)
+        # return
 
-        left_thread.start()
-        right_thread.start()
-        left_thread.join()
-        right_thread.join()
-        # print(f"left_array: {left_array}")
-        # print(f"right_array: {right_array}")
-        
-        left_pointer = 0
-        right_pointer = 0
-        index = 0
-        left_n = mid
-        right_n = n - mid
+        threads = [None] * self.max_thread
+        for rank in range(self.max_thread):
+            threads[rank] = threading.Thread(target=self.merge, args=(data[rank],))
+            threads[rank].start()
+
+        for rank in range(self.max_thread):
+            threads[rank].join()
+
 
         #Modify the original array in place so that parent thread can receive the sorted array
-        while left_pointer < left_n and right_pointer < right_n:
-            if left_array[left_pointer] < right_array[right_pointer]:
-                array[index] = left_array[left_pointer]
-                left_pointer += 1
-            else:
-                array[index] = right_array[right_pointer]
-                right_pointer += 1
-            index += 1
+        # while left_pointer < left_n and right_pointer < right_n:
+        #     if left_array[left_pointer] < right_array[right_pointer]:
+        #         array[index] = left_array[left_pointer]
+        #         left_pointer += 1
+        #     else:
+        #         array[index] = right_array[right_pointer]
+        #         right_pointer += 1
+        #     index += 1
 
-        while left_pointer < left_n:
-            array[index] = left_array[left_pointer]
-            left_pointer += 1
-            index += 1
+        # while left_pointer < left_n:
+        #     array[index] = left_array[left_pointer]
+        #     left_pointer += 1
+        #     index += 1
         
-        while right_pointer < right_n:
-            array[index] = right_array[right_pointer]
-            right_pointer += 1
-            index += 1
+        # while right_pointer < right_n:
+        #     array[index] = right_array[right_pointer]
+        #     right_pointer += 1
+        #     index += 1
 
 
 

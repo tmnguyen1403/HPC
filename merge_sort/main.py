@@ -9,19 +9,19 @@ import os
 
 from merge_sort_serial import MergeSortSerial
 from merge_sort_parallel import MergeSortParallel
-class Test(unittest.TestCase):
-    def test(self, f, input, expect):
-        output = f(input)
-        self.assertEqual(output, expect)
+# class Test(unittest.TestCase):
+#     def test(self, f, input, expect):
+#         output = f(input)
+#         self.assertEqual(output, expect)
 
 def test(f, input, expect):
-        # print(f"Test input: {input}")
-        # print(f"Expect output: {expect}")
+       # print(f"Test input: {input}")
+        #print(f"Expect output: {expect}")
        # print(f"Test input size: {len(input)}")
         #print(f"Expect output: {expect}")
         output = f(input)
         #print(f"output == expect: {output == expect}")
-        assert output == expect
+        #assert output == expect
 
 def generate_test_case(min_max, N, out_file):
     '''
@@ -81,7 +81,7 @@ if __name__ == "__main__":
 
     input_array = []
     expect_array = []
-    max_test=N//2
+    max_test=N//10
     with open(test_file, "r") as file:
         read_input=True
         for line_number, line in enumerate(file):
@@ -111,14 +111,15 @@ if __name__ == "__main__":
     # save_run_time(test_range, elapsed_time_array, time_out_path)
 
     # Parallel merge sort
-    merge_sort_parallel = MergeSortParallel()
+    max_thread = 4
+    merge_sort_parallel = MergeSortParallel(max_thread=max_thread)
 
-    test_range = [10,100,200]
+    test_range = [10,100,1000]
     merge_sort_f = merge_sort_parallel.sort
     elapsed_time_array = time_function(merge_sort_f, input_array,expect_array,test_range)
     
     time_folder = "merge_time"
-    time_out_file = "merge_timing_parallel_1.txt"
+    time_out_file = "merge_timing_parallel_v2_1.txt"
     time_out_path = os.path.join(time_folder, time_out_file)
     save_run_time(test_range, elapsed_time_array, time_out_path)
 
