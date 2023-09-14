@@ -5,7 +5,10 @@ Mergesort: split array by half until none splittable, then combine the two array
 class MergeSortSerial:
     # def __init__(self):
     #     pass
-
+    def sort(self,array):
+        sorted_array = self.merge(array)
+        return sorted_array
+    
     def merge(self, array):
         n = len(array)
         if n == 1:

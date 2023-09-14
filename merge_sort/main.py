@@ -8,7 +8,7 @@ import time
 import os
 
 from merge_sort_serial import MergeSortSerial
-
+from merge_sort_parallel import MergeSortParallel
 class Test(unittest.TestCase):
     def test(self, f, input, expect):
         output = f(input)
@@ -72,7 +72,7 @@ if __name__ == "__main__":
     #First line: input
     #Second line: expect_output
 
-    test_file = "./data/merge_test_input.txt"
+    test_file = "./data/merge_test_input.txt_large"
     # Generate test file 
     # min_max = [-200, 200]
     N = 10000
@@ -98,14 +98,27 @@ if __name__ == "__main__":
                 expect_array.append(input)
                 read_input=True
 
-    merge_sort_serial = MergeSortSerial()
+    # Serial merge sort
+    # merge_sort_serial = MergeSortSerial()
 
-    test_range = [10,100,1000,N//2]
-    merge_sort_f = merge_sort_serial.merge
+    # test_range = [10,100,1000,N//2]
+    # merge_sort_f = merge_sort_serial.sort
+    # elapsed_time_array = time_function(merge_sort_f, input_array,expect_array,test_range)
+    
+    # time_folder = "merge_time"
+    # time_out_file = "merge_timing_serial_1.txt"
+    # time_out_path = os.path.join(time_folder, time_out_file)
+    # save_run_time(test_range, elapsed_time_array, time_out_path)
+
+    # Parallel merge sort
+    merge_sort_parallel = MergeSortParallel()
+
+    test_range = [10,100,200]
+    merge_sort_f = merge_sort_parallel.sort
     elapsed_time_array = time_function(merge_sort_f, input_array,expect_array,test_range)
     
     time_folder = "merge_time"
-    time_out_file = "merge_timing_serial_4.txt"
+    time_out_file = "merge_timing_parallel_1.txt"
     time_out_path = os.path.join(time_folder, time_out_file)
     save_run_time(test_range, elapsed_time_array, time_out_path)
 
