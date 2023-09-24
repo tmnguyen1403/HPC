@@ -31,10 +31,11 @@ int main(int argc, char* argv[]) {
     }
     #pragma omp parallel num_threads(thread_count) \
         default(none) shared(a, n)
+        
     {
         for (int phase = 0; phase < n; ++phase) {
             if (phase % 2 == 0) {
-                #pragma omp for
+                #pragma omp for schedule(dynamic, 20'000)
                 for (int i = 1; i < n; i+=2) {
                     if (a[i-1] > a[i]) {
                         std::swap(a[i-1], a[i]);
@@ -42,7 +43,7 @@ int main(int argc, char* argv[]) {
                 }
             }
             else {
-                #pragma omp for
+                #pragma omp for schedule(dynamic, 20'000)
                 for (int i = 1; i < n -1; i+=2) {
                     if (a[i] > a[i+1]) {
                         std::swap(a[i], a[i+1]);
