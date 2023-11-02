@@ -21,3 +21,16 @@ http://www.hpctoolkit.org/pubs/2021-11-SC21-Tutorial-HPCToolkit-Sampling.pdf
 
 ## TODO
 Install hpcviewer to see the result
+
+## Run docker with GUI capability
+docker run -it --rm --name my-running-gui-app --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" my-gui-container
+
+On mac, need to use ```xauth``` installed XQuartz
+
+AMG: https://github.com/LLNL/AMG
+
+AMGX: https://github.com/NVIDIA/AMGX
+### AMGX
+Discuss this with instructor, this is Nvidia and require CUDA and Nvidia GPU
+
+
