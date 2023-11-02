@@ -1,0 +1,60 @@
+hpctoolkit warning: executable '/home/spack/opt/spack/linux-ubuntu22.04-skylake/gcc-11.4.0/openmpi-4.1.6-2tkxt3wwvo44biiu5qwnvttb7w7dozrt/bin/orterun' (pid=12024) prematurely closed hpctoolkit's log file
+Running with these driver parameters:
+  solver ID    = 1
+
+  Laplacian_27pt:
+    (Nx, Ny, Nz) = (50, 50, 50)
+    (Px, Py, Pz) = (1, 1, 1)
+
+=============================================
+Generate Matrix:
+=============================================
+Spatial Operator:
+  wall clock time = 0.070854 seconds
+  wall MFLOPS     = 0.000000
+  cpu clock time  = 0.070724 seconds
+  cpu MFLOPS      = 0.000000
+
+  RHS vector has unit components
+  Initial guess is 0
+=============================================
+IJ Vector Setup:
+=============================================
+RHS and Initial Guess:
+  wall clock time = 0.001980 seconds
+  wall MFLOPS     = 0.000000
+  cpu clock time  = 0.001919 seconds
+  cpu MFLOPS      = 0.000000
+
+=============================================
+Problem 1: AMG Setup Time:
+=============================================
+PCG Setup:
+  wall clock time = 0.315634 seconds
+  wall MFLOPS     = 0.000000
+  cpu clock time  = 0.315534 seconds
+  cpu MFLOPS      = 0.000000
+
+
+FOM_Setup: nnz_AP / Setup Phase Time: 1.117733e+07
+
+=============================================
+Problem 1: AMG-PCG Solve Time:
+=============================================
+PCG Solve:
+  wall clock time = 0.681097 seconds
+  wall MFLOPS     = 0.000000
+  cpu clock time  = 0.680851 seconds
+  cpu MFLOPS      = 0.000000
+
+
+Iterations = 20
+Final Relative Residual Norm = 7.337678e-09
+
+
+FOM_Solve: nnz_AP * Iterations / Solve Phase Time: 1.035961e+08
+
+
+
+Figure of Merit (FOM_1): 8.049142e+07
+

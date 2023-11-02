@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!DOCTYPE HPCToolkitStructure [
+<!-- ******************************************************************** -->
+<!-- HPCToolkit Structure DTD                                             -->
+<!-- Version 4.9                                                          -->
+<!-- ******************************************************************** -->
+
+<!ELEMENT HPCToolkitStructure (LM)*>
+<!ATTLIST HPCToolkitStructure
+	version CDATA #REQUIRED
+	i       CDATA #REQUIRED
+	n       CDATA #IMPLIED>
+  <!-- Load module: -->
+  <!--   (i)d: unique identifier for cross referencing -->
+  <!--   (n)ame -->
+  <!--   (l)ine range: "beg-end" (inclusive range) -->
+  <!--   (v)ma-range-set: "{[beg-end), [beg-end)...}" -->
+  <!--   (t)arget: target function address -->
+  <!--   (d)evice: device name -->
+  <!ELEMENT LM (F|P)*>
+  <!ATTLIST LM
+	i CDATA #REQUIRED
+	n CDATA #REQUIRED
+	has-calls CDATA #REQUIRED
+	v CDATA #IMPLIED>
+  <!-- File: -->
+  <!ELEMENT F (P|L|S)*>
+  <!ATTLIST F
+	i CDATA #REQUIRED
+	n CDATA #REQUIRED>
+  <!-- Procedure: ln=link name (if different than name) -->
+  <!ELEMENT P (P|A|L|S|C)*>
+  <!ATTLIST P
+	i  CDATA #REQUIRED
+	n  CDATA #REQUIRED
+	ln CDATA #IMPLIED
+	l  CDATA #IMPLIED
+	s  CDATA #IMPLIED
+	v  CDATA #IMPLIED>
+  <!-- Alien: (f)ilename -->
+  <!ELEMENT A (A|L|S|C)*>
+  <!ATTLIST A
+	i CDATA #REQUIRED
+	f CDATA #IMPLIED
+	n CDATA #IMPLIED
+	ln CDATA #IMPLIED
+	l CDATA #IMPLIED
+	v CDATA #IMPLIED>
+  <!-- Loop -->
+  <!ELEMENT L (A|L|S|C)*>
+  <!ATTLIST L
+	i CDATA #REQUIRED
+	l CDATA #REQUIRED
+	f CDATA #IMPLIED
+	v CDATA #IMPLIED>
+  <!-- Statement -->
+  <!ELEMENT S EMPTY>
+  <!ATTLIST S
+	i CDATA #REQUIRED
+	l CDATA #REQUIRED
+	v CDATA #IMPLIED>
+  <!-- Callsite (a special Statement) -->
+  <!ELEMENT C (C)*>
+  <!ATTLIST C
+	i CDATA #REQUIRED
+	l CDATA #REQUIRED
+	v CDATA #IMPLIED
+	t CDATA #IMPLIED
+	d CDATA #IMPLIED>
+]>
+<HPCToolkitStructure i="0" version="4.9" n="">
+<LM i="2" n="/home/HPC/AMG/hpctoolkit-orterun-measurements/vdso/2886efe192074a7efe3d6e766df92e9f.vdso" has-calls="0" v="{}">
+<F i="3" n="[2886efe192074a7efe3d6e766df92e9f.vdso]">
+<P i="4" n="targ630 [2886efe192074a7efe3d6e766df92e9f.vdso]" ln="targ630" l="0" v="{[0x630-0x631)}">
+<S i="5" l="0" v="{[0x630-0x65b) [0x67c-0x69a) [0x6f5-0x700)}"/>
+<L i="6" l="0" f="[2886efe192074a7efe3d6e766df92e9f.vdso]" v="{[0x65b-0x65c)}">
+<S i="7" l="0" v="{[0x65b-0x67c)}"/>
+</L>
+<L i="8" l="0" f="[2886efe192074a7efe3d6e766df92e9f.vdso]" v="{[0x69a-0x69b)}">
+<S i="9" l="0" v="{[0x69a-0x6f5)}"/>
+</L>
+</P>
+<P i="10" n="__vdso_gettimeofday [2886efe192074a7efe3d6e766df92e9f.vdso]" ln="__vdso_gettimeofday" l="0" v="{[0x700-0x701)}">
+<S i="11" l="0" v="{[0x700-0x71d) [0x779-0x786) [0x797-0x7bc) [0x7cf-0x816) [0x86e-0x88c) [0x89d-0x8a7)}"/>
+<L i="12" l="0" f="[2886efe192074a7efe3d6e766df92e9f.vdso]" v="{[0x71d-0x71e)}">
+<S i="13" l="0" v="{[0x71d-0x779) [0x7bc-0x7cf)}"/>
+</L>
+<L i="14" l="0" f="[2886efe192074a7efe3d6e766df92e9f.vdso]" v="{[0x786-0x787)}">
+<S i="15" l="0" v="{[0x786-0x797)}"/>
+</L>
+<L i="16" l="0" f="[2886efe192074a7efe3d6e766df92e9f.vdso]" v="{[0x816-0x817)}">
+<S i="17" l="0" v="{[0x816-0x86e) [0x8a7-0x8ae)}"/>
+</L>
+<L i="18" l="0" f="[2886efe192074a7efe3d6e766df92e9f.vdso]" v="{[0x88c-0x88d)}">
+<S i="19" l="0" v="{[0x88c-0x89d)}"/>
+</L>
+</P>
+<P i="20" n="__vdso_time [2886efe192074a7efe3d6e766df92e9f.vdso]" ln="__vdso_time" l="0" v="{[0x8b0-0x8b1)}">
+<S i="21" l="0" v="{[0x8b0-0x8d9)}"/>
+</P>
+<P i="22" n="__vdso_clock_gettime [2886efe192074a7efe3d6e766df92e9f.vdso]" ln="__vdso_clock_gettime" l="0" v="{[0x8e0-0x8e1)}">
+<S i="23" l="0" v="{[0x8e0-0x924) [0x96d-0x97a) [0x98b-0x9bb) [0x9cc-0x9eb) [0xa0a-0xa0e) [0xa22-0xa42) [0xa8f-0xaae) [0xabf-0xae8) [0xaff-0xb15) [0xb28-0xb3d) [0xb48-0xb4f)}"/>
+<L i="24" l="0" f="[2886efe192074a7efe3d6e766df92e9f.vdso]" v="{[0x924-0x925)}">
+<S i="25" l="0" v="{[0x924-0x96d) [0x9bb-0x9cc)}"/>
+</L>
+<L i="26" l="0" f="[2886efe192074a7efe3d6e766df92e9f.vdso]" v="{[0x97a-0x97b)}">
+<S i="27" l="0" v="{[0x97a-0x98b)}"/>
+</L>
+<L i="28" l="0" f="[2886efe192074a7efe3d6e766df92e9f.vdso]" v="{[0x9eb-0x9ec)}">
+<S i="29" l="0" v="{[0x9eb-0xa0a) [0xa0e-0xa22)}"/>
+</L>
+<L i="30" l="0" f="[2886efe192074a7efe3d6e766df92e9f.vdso]" v="{[0xa42-0xa43)}">
+<S i="31" l="0" v="{[0xa42-0xa8f) [0xb3d-0xb44)}"/>
+</L>
+<L i="32" l="0" f="[2886efe192074a7efe3d6e766df92e9f.vdso]" v="{[0xaae-0xaaf)}">
+<S i="33" l="0" v="{[0xaae-0xabf)}"/>
+</L>
+<L i="34" l="0" f="[2886efe192074a7efe3d6e766df92e9f.vdso]" v="{[0xae8-0xae9)}">
+<S i="35" l="0" v="{[0xae8-0xaff) [0xb44-0xb48)}"/>
+</L>
+<L i="36" l="0" f="[2886efe192074a7efe3d6e766df92e9f.vdso]" v="{[0xb15-0xb16)}">
+<S i="37" l="0" v="{[0xb15-0xb28)}"/>
+</L>
+</P>
+<P i="38" n="__vdso_clock_getres [2886efe192074a7efe3d6e766df92e9f.vdso]" ln="__vdso_clock_getres" l="0" v="{[0xb50-0xb51)}">
+<S i="39" l="0" v="{[0xb50-0xbb0)}"/>
+</P>
+<P i="40" n="__vdso_getcpu [2886efe192074a7efe3d6e766df92e9f.vdso]" ln="__vdso_getcpu" l="0" v="{[0xbb0-0xbb1)}">
+<S i="41" l="0" v="{[0xbb0-0xbd5)}"/>
+</P>
+</F>
+</LM>
+</HPCToolkitStructure>

@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<!DOCTYPE HPCToolkitStructure [
+<!-- ******************************************************************** -->
+<!-- HPCToolkit Structure DTD                                             -->
+<!-- Version 4.9                                                          -->
+<!-- ******************************************************************** -->
+
+<!ELEMENT HPCToolkitStructure (LM)*>
+<!ATTLIST HPCToolkitStructure
+	version CDATA #REQUIRED
+	i       CDATA #REQUIRED
+	n       CDATA #IMPLIED>
+  <!-- Load module: -->
+  <!--   (i)d: unique identifier for cross referencing -->
+  <!--   (n)ame -->
+  <!--   (l)ine range: "beg-end" (inclusive range) -->
+  <!--   (v)ma-range-set: "{[beg-end), [beg-end)...}" -->
+  <!--   (t)arget: target function address -->
+  <!--   (d)evice: device name -->
+  <!ELEMENT LM (F|P)*>
+  <!ATTLIST LM
+	i CDATA #REQUIRED
+	n CDATA #REQUIRED
+	has-calls CDATA #REQUIRED
+	v CDATA #IMPLIED>
+  <!-- File: -->
+  <!ELEMENT F (P|L|S)*>
+  <!ATTLIST F
+	i CDATA #REQUIRED
+	n CDATA #REQUIRED>
+  <!-- Procedure: ln=link name (if different than name) -->
+  <!ELEMENT P (P|A|L|S|C)*>
+  <!ATTLIST P
+	i  CDATA #REQUIRED
+	n  CDATA #REQUIRED
+	ln CDATA #IMPLIED
+	l  CDATA #IMPLIED
+	s  CDATA #IMPLIED
+	v  CDATA #IMPLIED>
+  <!-- Alien: (f)ilename -->
+  <!ELEMENT A (A|L|S|C)*>
+  <!ATTLIST A
+	i CDATA #REQUIRED
+	f CDATA #IMPLIED
+	n CDATA #IMPLIED
+	ln CDATA #IMPLIED
+	l CDATA #IMPLIED
+	v CDATA #IMPLIED>
+  <!-- Loop -->
+  <!ELEMENT L (A|L|S|C)*>
+  <!ATTLIST L
+	i CDATA #REQUIRED
+	l CDATA #REQUIRED
+	f CDATA #IMPLIED
+	v CDATA #IMPLIED>
+  <!-- Statement -->
+  <!ELEMENT S EMPTY>
+  <!ATTLIST S
+	i CDATA #REQUIRED
+	l CDATA #REQUIRED
+	v CDATA #IMPLIED>
+  <!-- Callsite (a special Statement) -->
+  <!ELEMENT C (C)*>
+  <!ATTLIST C
+	i CDATA #REQUIRED
+	l CDATA #REQUIRED
+	v CDATA #IMPLIED
+	t CDATA #IMPLIED
+	d CDATA #IMPLIED>
+]>
+<HPCToolkitStructure i="0" version="4.9" n="">
+<LM i="2" n="/home/spack/opt/spack/linux-ubuntu22.04-skylake/gcc-11.4.0/openmpi-4.1.6-2tkxt3wwvo44biiu5qwnvttb7w7dozrt/bin/orterun" has-calls="0" v="{}">
+<F i="3" n="[orterun]">
+<P i="4" n="_init" l="0" v="{[0x2000-0x2001)}">
+<S i="5" l="0" v="{[0x2000-0x201b)}"/>
+</P>
+<P i="6" n="targ20f0@plt" l="0" v="{[0x20f0-0x20f1)}">
+<S i="7" l="0" v="{[0x20f0-0x2100)}"/>
+</P>
+<P i="8" n="orte_finalize@plt" l="0" v="{[0x2100-0x2101)}">
+<S i="9" l="0" v="{[0x2100-0x2110)}"/>
+</P>
+<P i="10" n="orte_proc_info_finalize@plt" l="0" v="{[0x2110-0x2111)}">
+<S i="11" l="0" v="{[0x2110-0x2120)}"/>
+</P>
+<P i="12" n="__fprintf_chk@plt" l="0" v="{[0x2120-0x2121)}">
+<S i="13" l="0" v="{[0x2120-0x2130)}"/>
+</P>
+<P i="14" n="orte_util_print_jobids@plt" l="0" v="{[0x2130-0x2131)}">
+<S i="15" l="0" v="{[0x2130-0x2140)}"/>
+</P>
+<P i="16" n="exit@plt" l="0" v="{[0x2140-0x2141)}">
+<S i="17" l="0" v="{[0x2140-0x2150)}"/>
+</P>
+<P i="18" n="opal_output@plt" l="0" v="{[0x2150-0x2151)}">
+<S i="19" l="0" v="{[0x2150-0x2160)}"/>
+</P>
+<P i="20" n="orte_submit_init@plt" l="0" v="{[0x2160-0x2161)}">
+<S i="21" l="0" v="{[0x2160-0x2170)}"/>
+</P>
+<P i="22" n="orte_submit_finalize@plt" l="0" v="{[0x2170-0x2171)}">
+<S i="23" l="0" v="{[0x2170-0x2180)}"/>
+</P>
+<P i="24" n="orte_session_dir_cleanup@plt" l="0" v="{[0x2180-0x2181)}">
+<S i="25" l="0" v="{[0x2180-0x2190)}"/>
+</P>
+<P i="26" n="orte_submit_halt@plt" l="0" v="{[0x2190-0x2191)}">
+<S i="27" l="0" v="{[0x2190-0x21a0)}"/>
+</P>
+<P i="28" n="event_base_loop@plt" l="0" v="{[0x21a0-0x21a1)}">
+<S i="29" l="0" v="{[0x21a0-0x21b0)}"/>
+</P>
+<P i="30" n="orte_submit_job@plt" l="0" v="{[0x21b0-0x21b1)}">
+<S i="31" l="0" v="{[0x21b0-0x21c0)}"/>
+</P>
+<P i="32" n="main" l="0" v="{[0x21c0-0x21c1)}">
+<S i="33" l="0" v="{[0x21c0-0x21c9)}"/>
+</P>
+<P i="34" n="_start" l="0" v="{[0x21d0-0x21d1)}">
+<S i="35" l="0" v="{[0x21d0-0x21f6)}"/>
+</P>
+<P i="36" n="deregister_tm_clones" l="0" v="{[0x2200-0x2201)}">
+<S i="37" l="0" v="{[0x2200-0x2230)}"/>
+</P>
+<P i="38" n="register_tm_clones" l="0" v="{[0x2230-0x2231)}">
+<S i="39" l="0" v="{[0x2230-0x2270)}"/>
+</P>
+<P i="40" n="__do_global_dtors_aux" l="0" v="{[0x2270-0x2271)}">
+<S i="41" l="0" v="{[0x2270-0x22b0)}"/>
+</P>
+<P i="42" n="frame_dummy" l="0" v="{[0x22b0-0x22b1)}">
+<S i="43" l="0" v="{[0x22b0-0x22c0)}"/>
+</P>
+<P i="44" n="launched" l="0" v="{[0x22c0-0x22c1)}">
+<S i="45" l="0" v="{[0x22c0-0x231a)}"/>
+</P>
+<P i="46" n="completed" l="0" v="{[0x2320-0x2321)}">
+<S i="47" l="0" v="{[0x2320-0x237a)}"/>
+</P>
+<P i="48" n="orterun" l="0" v="{[0x2380-0x2381)}">
+<S i="49" l="0" v="{[0x2380-0x2420) [0x2443-0x2490) [0x24b3-0x2510) [0x252a-0x256f)}"/>
+<L i="50" l="0" f="[orterun]" v="{[0x243a-0x243b)}">
+<S i="51" l="0" v="{[0x2420-0x2443)}"/>
+</L>
+<L i="52" l="0" f="[orterun]" v="{[0x24aa-0x24ab)}">
+<S i="53" l="0" v="{[0x2490-0x24b3)}"/>
+</L>
+<L i="54" l="0" f="[orterun]" v="{[0x2521-0x2522)}">
+<S i="55" l="0" v="{[0x2510-0x252a)}"/>
+</L>
+</P>
+<P i="56" n="_fini" l="0" v="{[0x2570-0x2571)}">
+<S i="57" l="0" v="{[0x2570-0x257d)}"/>
+</P>
+</F>
+</LM>
+</HPCToolkitStructure>
