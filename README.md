@@ -33,4 +33,11 @@ AMGX: https://github.com/NVIDIA/AMGX
 ### AMGX
 Discuss this with instructor, this is Nvidia and require CUDA and Nvidia GPU
 
+## AMG TEST RUN
+1. Modify Makefile.include to compile with
+-g -O3
+2. Set PATH to AMG/test/amg 
+3. run the script profiling.sh
+Check the folder amg_profile to analyze the result
+
 
