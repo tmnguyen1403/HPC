@@ -1,0 +1,63 @@
+hpctoolkit warning: executable '/home/spack/opt/spack/linux-ubuntu22.04-skylake/gcc-11.4.0/openmpi-4.1.6-2tkxt3wwvo44biiu5qwnvttb7w7dozrt/bin/orterun' (pid=536) prematurely closed hpctoolkit's log file
+hpctoolkit warning: executable '/home/spack/opt/spack/linux-ubuntu22.04-skylake/gcc-11.4.0/openmpi-4.1.6-2tkxt3wwvo44biiu5qwnvttb7w7dozrt/bin/orterun' (pid=539) prematurely closed hpctoolkit's log file
+hpctoolkit warning: executable '/home/spack/opt/spack/linux-ubuntu22.04-skylake/gcc-11.4.0/openmpi-4.1.6-2tkxt3wwvo44biiu5qwnvttb7w7dozrt/bin/orterun' (pid=544) prematurely closed hpctoolkit's log file
+hpctoolkit warning: executable '/home/spack/opt/spack/linux-ubuntu22.04-skylake/gcc-11.4.0/openmpi-4.1.6-2tkxt3wwvo44biiu5qwnvttb7w7dozrt/bin/orterun' (pid=548) prematurely closed hpctoolkit's log file
+Running with these driver parameters:
+  solver ID    = 1
+
+  Laplacian_27pt:
+    (Nx, Ny, Nz) = (50, 200, 50)
+    (Px, Py, Pz) = (1, 4, 1)
+
+=============================================
+Generate Matrix:
+=============================================
+Spatial Operator:
+  wall clock time = 0.546765 seconds
+  wall MFLOPS     = 0.000000
+  cpu clock time  = 0.750604 seconds
+  cpu MFLOPS      = 0.000000
+
+  RHS vector has unit components
+  Initial guess is 0
+=============================================
+IJ Vector Setup:
+=============================================
+RHS and Initial Guess:
+  wall clock time = 0.073786 seconds
+  wall MFLOPS     = 0.000000
+  cpu clock time  = 0.107152 seconds
+  cpu MFLOPS      = 0.000000
+
+=============================================
+Problem 1: AMG Setup Time:
+=============================================
+PCG Setup:
+  wall clock time = 20.624490 seconds
+  wall MFLOPS     = 0.000000
+  cpu clock time  = 29.688648 seconds
+  cpu MFLOPS      = 0.000000
+
+
+FOM_Setup: nnz_AP / Setup Phase Time: 6.919476e+05
+
+=============================================
+Problem 1: AMG-PCG Solve Time:
+=============================================
+PCG Solve:
+  wall clock time = 71.860545 seconds
+  wall MFLOPS     = 0.000000
+  cpu clock time  = 103.639812 seconds
+  cpu MFLOPS      = 0.000000
+
+
+Iterations = 20
+Final Relative Residual Norm = 7.658811e-09
+
+
+FOM_Solve: nnz_AP * Iterations / Solve Phase Time: 3.971878e+06
+
+
+
+Figure of Merit (FOM_1): 3.151895e+06
+
